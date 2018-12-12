@@ -39,8 +39,8 @@ section {
 }
 
 footer {
-  background-color: darkgoldenrod
-
+  background-color: darkgoldenrod;
+  padding: 50px;
 }
 
 /* Menú de navegación */
