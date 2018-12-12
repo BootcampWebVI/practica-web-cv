@@ -1,0 +1,155 @@
+/* * {border: 1px solid black} */
+
+/* Formato general de la página */
+html {
+  vertical-align: baseline;
+  border: 1px solid black;
+  scroll-behavior: smooth;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Áreas principales de la página */
+header {
+  color: blanchedalmond;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+main {
+  display: flex;
+  flex-direction: column
+}
+
+section {
+  width: 66%;
+  margin-left: auto;
+  margin-right: auto
+}
+
+footer {
+  background-color: darkgoldenrod
+
+}
+
+/* Menú de navegación */
+nav ul {
+  color: blanchedalmond;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+li:hover {
+  background-color: chocolate;
+}
+
+li>a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Elementos generales */
+h3,
+span {
+  margin-bottom: 0px;
+}
+
+p {
+  margin-top: 0px;
+}
+
+img {
+  float: left;
+  margin-right: 10px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+video {
+  width: 100%;
+  display: block;
+  margin: 25px auto;
+}
+
+form {
+  display: grid;
+}
+
+/* Elementos específicos */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.details {
+  display: block;
+  font-style: italic;
+  margin: 5px 0px 5px 0px;
+}
+
+.container-1,
+.container-3,
+.container-5 {
+  background-color: blanchedalmond;
+}
+
+.mobile {
+  display: none
+}
+
+@media screen and (max-width: 600px) {
+  nav li:not(.mobile) {
+    display: none
+  }
+
+  .topnav .mobile {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .topnav.responsive li {
+    float: none;
+    display: block;
+    width: 100vw;
+    background-color: blanchedalmond;
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .topnav.responsive li:hover {
+    background-color: chocolate
+  }
+
+  .topnav.responsive ul {
+    margin: 0;
+  }
+
+}
