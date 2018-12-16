@@ -1,14 +1,24 @@
-function displayMenu() {
-    var topnav = document.querySelector('.topnav');
-    if (topnav.className === "topnav") {
-      topnav.className += " responsive";
-    } else {
-      topnav.className = "topnav";
-    }
+function toggleMenu() {
+
+}
+
+function toggleField() {
+  if (document.querySelector('#other').checked) {
+    document.querySelector('.referral').classList.remove('hidden')
+  } else {
+    document.querySelector('.referral').classList.add('hidden')
   }
+  
+}
 
-// let icon = document.querySelector('.icon')
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Document loaded!')
 
-// icon.on('onclick', displayMenu)
+  const icon = document.querySelector('.mobile')
+  icon.addEventListener('click', toggleMenu)
+
+  const option = document.querySelectorAll('.radio input')
+  option.forEach(i => i.addEventListener('click', toggleField))
+})
 
     

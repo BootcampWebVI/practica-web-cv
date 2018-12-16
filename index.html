@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fernando Merino</title>
-    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <script src="./scripts/script.js"></script>
 </head>
 
 <body>
-    <header>
+    <header id="home">
         <h1 class="title">Fernando Merino</h1>
         <span class="subtitle">Currículum Vitae</span>
-        <nav class="topnav">
+        <nav class="sidenav">
             <ul>
-                <li class="mobile" onclick="displayMenu()"><a href="javascript:void(0);" class="icon"></a><i class="fas fa-bars"></i></a></li>
+                <li class="mobile"><a href="javascript:void(0);" class="icon"><i class="fas fa-bars"></i></a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#who-is">Quién soy</a></li>
                 <li><a href="#studies">Estudios</a></li>
                 <li><a href="#experience">Experiencia</a></li>
@@ -35,9 +35,7 @@
                 <p>¡Hola! Mi nombre es Fernando Merino y soy de Logroño, La Rioja. Soy un ingeniero industrial con experiencia en el sector de las energías renovables y apasionado por la programación web y las tecnologías digitales. Siempre he sido de vocación científica y técnica, lo que me llevó a formarme en en el mundo de la Ingeniería, primero como Ingeniero Técnico Industrial y después como Ingeniero Industrial.</p>
                 <p>El mundo de la programación y el código ha sido algo que siempre ha estado por ahí rondándome entre mis inquietudes. Esta página web es un pequeño ejemplo de cómo estoy trabajando mis habilidades en el front end y el back end para llegar a ser un Full Stack Web Developer de élite. ¡Bienvenido a mi currículum!</p>
             </section>
-            </section>
         </div>
-
 
         <div class="container-2">
             <section id="studies">
@@ -65,7 +63,6 @@
             </section>
         </div>
 
-
         <div class="container-3">
             <section id="experience">
                 <h1>Experiencia</h1>
@@ -87,7 +84,6 @@
             </section>
         </div>
 
-
         <div class="container-4">
             <section id="about-me">
                 <h1>Sobre mí</h1>
@@ -101,36 +97,36 @@
             </section>
         </div>
 
-
         <div class="container-5">
             <section id="contact">
                 <h1>Contacto</h1>
                 <p>Si quieres ponerte en contacto conmigo para cualquier asunto, rellena el formulario que aparece a continuación y siéntete libre de contarme lo que te apetezca.</p>
                 <p>¡Espero tu mensaje!</p>
                 <form action="">
-                    <label for="name">Nombre</label></br>
-                    <input id="name" type="text" placeholder="Nombre..." required></br>
+                    <label for="name">Nombre</label>
+                    <input id="name" type="text" placeholder="Nombre..." required>
 
-                    <label for="email">E-mail</label></br>
-                    <input id="email" type="email" placeholder="E-mail..." required></br>
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" placeholder="E-mail..." required>
 
-                    <label>¿Cómo me has conocido?</label></br>
-                    <input id="social" type="radio" name="referral" value="social"><label for="social">Por redes sociales</label></br>
-                    <input id="company" type="radio" name="referral" value="company"><label for="company">Por una empresa</label></br>
-                    <input id="friend" type="radio" name="referral" value="friend"><label for="friend">Por un amigo</label></br>
-                    <input id="other" type="radio" name="referral" value="other" onfocus="showField"><label for="other">Otros </label><input type="text" name="referral"></br></label>
+                    <label>¿Cómo me has conocido?</label>
+                    <div class="radio">
+                        <input id="social" type="radio" name="referral" value="social"><label for="social">Por redes sociales</label>
+                        <input id="company" type="radio" name="referral" value="company"><label for="company">Por una empresa</label>
+                        <input id="friend" type="radio" name="referral" value="friend"><label for="friend">Por un amigo</label>
+                        <input id="other" type="radio" name="referral" value="other"><span><label for="other">Otros </label><input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo..."></span>
+                    </div>
 
-                    <label for="phone">Teléfono</label></br>
-                    <input id="phone" type="tel" placeholder="Teléfono..."></br>
+                    <label for="phone">Teléfono</label>
+                    <input id="phone" type="tel" placeholder="Teléfono...">
 
-                    <label for="message">Tu mensaje</label></br>
-                    <textarea name="" id="message" cols="18" rows="10" placeholder="Escríbeme lo que quieras..." required></textarea></br>
+                    <label for="message">Tu mensaje</label>
+                    <textarea name="" id="message" cols="18" rows="10" placeholder="Escríbeme lo que quieras..." required></textarea>
 
                     <button type="submit">Enviar</button>
                 </form>
             </section>
         </div>
-
 
     </main>
     <footer>
@@ -141,6 +137,7 @@
             <li>freeCodeCamp</li>
         </ul>
     </footer>
+    </div>
 </body>
 
 </html>

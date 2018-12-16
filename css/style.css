@@ -2,8 +2,6 @@
 
 /* Formato general de la página */
 html {
-  vertical-align: baseline;
-  border: 1px solid black;
   scroll-behavior: smooth;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -11,7 +9,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  border: 0;
+  border: 0
 }
 
 /* Cabecera */
@@ -21,10 +19,12 @@ header {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  margin-left: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  transition: 0.5s;
 }
 
 .title {
@@ -32,13 +32,14 @@ header {
   font-size: 5rem;
   font-weight: bold;
   margin-bottom: 0px;
+  transition: 0.5s
 }
 
 .subtitle {
   text-align: center;
   font-size: 2.5rem;
+  transition: 0.5s
 }
-
 
 footer {
   background-color: darkgoldenrod;
@@ -46,29 +47,44 @@ footer {
 }
 
 /* Menú de navegación */
+nav {
+  transition: 0.5s
+}
+
 nav ul {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: black;
   color: blanchedalmond;
   position: fixed;
   top: 0px;
-  right: 10px;
+  left: 0px;
+  transition: 0.5s
 }
 
 nav li {
-  display: inline-block;
-  padding: 5px;
+  display: block;
+  height: auto;
+  padding: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
-  font-size: 0.9rem;
   text-transform: uppercase;
-}
-
-li:hover {
-  background-color: chocolate;
+  transition: 0.5s
 }
 
 li>a {
   text-decoration: none;
   color: inherit;
-  font-size: 1.3rem
+  display: flex;
+  line-height: 100%;
+  padding: 5px
+}
+
+li:hover {
+  background-color: chocolate;
+  font-size: 1.5rem
 }
 
 .mobile {
@@ -78,11 +94,13 @@ li>a {
 /* Contenido principal */
 main {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  margin-left: 200px;
+  transition: 0.5s
 }
 
 section {
-  width: 66%;
+  width: 75%;
   margin-left: auto;
   margin-right: auto
 }
@@ -125,6 +143,34 @@ video {
 /* Formulario */
 form {
   display: grid;
+  grid-template-columns: 1fr 3fr;
+  font-size: 1.3rem;
+  align-items: center
+}
+
+input, textarea {
+  font-size: 1.3rem;
+  margin: 10px 0px;
+}
+
+.radio {
+  display: grid;
+  grid-template-columns: 1fr 10fr
+}
+
+.referral {
+  margin: 0px;
+}
+
+.hidden {
+  display: none
+}
+
+button {
+  font-size: 1.3rem;
+  margin: 20px;
+  padding: 15px;
+  grid-column: 1 / 3
 }
 
 /* Elementos específicos */
@@ -135,16 +181,43 @@ form {
 }
 
 @media screen and (max-width: 720px) {
-  nav li:not(.mobile) {
-    display: none
+  .sidenav li:not(.mobile) {
+    display: none;
   }
 
-  .topnav .mobile {
+  .sidenav .mobile {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
-  .topnav.responsive li {
+  .sidenav ul {
+    width: 50px;
+  }
+
+  a {
+    display: flex !important
+  }
+
+  header, main {
+    margin-left: 50px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem
+  }
+
+  form {
+    grid-template-columns: 1fr
+  }
+
+  button {
+    grid-column: 1 / 2
+  }
+  /* .sidenav .responsive li {
     float: none;
     display: block;
     width: 100vw;
@@ -152,14 +225,12 @@ form {
     color: black;
     text-align: center;
     font-size: 1.5rem;
-  }
+  } */
 
-  .topnav.responsive li:hover {
+  /* .sidenav .responsive li:hover {
     background-color: chocolate
-  }
+  } */
 
-  .topnav.responsive ul {
-    margin: 0;
-  }
+
 
 }
