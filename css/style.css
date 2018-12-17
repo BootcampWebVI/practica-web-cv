@@ -44,6 +44,7 @@ header {
 footer {
   background-color: darkgoldenrod;
   padding: 50px;
+  margin-left: 200px;
 }
 
 /* Menú de navegación */
@@ -101,8 +102,7 @@ main {
 
 section {
   width: 75%;
-  margin-left: auto;
-  margin-right: auto
+  margin: 50px auto 100px auto
 }
 
 img {
@@ -151,6 +151,8 @@ form {
 input, textarea {
   font-size: 1.3rem;
   margin: 10px 0px;
+  padding: 2px;
+  border: 1px solid black
 }
 
 .radio {
@@ -158,12 +160,23 @@ input, textarea {
   grid-template-columns: 1fr 10fr
 }
 
+.other-field {
+  display: flex;
+}
+
 .referral {
   margin: 0px;
+  flex-grow: 1;
+  margin-left: 10px
 }
 
 .hidden {
   display: none
+}
+
+.message {
+  display: flex;
+  flex-direction: column
 }
 
 button {
@@ -178,6 +191,10 @@ button {
 .container-3,
 .container-5 {
   background-color: blanchedalmond;
+}
+
+.container-2, .container-4 {
+  background-color: lightgoldenrodyellow
 }
 
 @media screen and (max-width: 720px) {
@@ -198,7 +215,7 @@ button {
     display: flex !important
   }
 
-  header, main {
+  header, main, footer {
     margin-left: 50px;
   }
 

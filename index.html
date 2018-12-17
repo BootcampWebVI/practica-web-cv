@@ -114,14 +114,17 @@
                         <input id="social" type="radio" name="referral" value="social"><label for="social">Por redes sociales</label>
                         <input id="company" type="radio" name="referral" value="company"><label for="company">Por una empresa</label>
                         <input id="friend" type="radio" name="referral" value="friend"><label for="friend">Por un amigo</label>
-                        <input id="other" type="radio" name="referral" value="other"><span><label for="other">Otros </label><input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo..."></span>
+                        <input id="other" type="radio" name="referral" value="other"><span class="other-field"><label for="other">Otros </label><input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo..."></span>
                     </div>
 
                     <label for="phone">Teléfono</label>
                     <input id="phone" type="tel" placeholder="Teléfono...">
 
                     <label for="message">Tu mensaje</label>
-                    <textarea name="" id="message" cols="18" rows="10" placeholder="Escríbeme lo que quieras..." required></textarea>
+                    <div class="message">
+                        <textarea name="" id="message" cols="18" rows="10" placeholder="Escríbeme lo que quieras..." required></textarea>
+                        <div><span class="count">0</span> palabras (Máx. 150)</div>
+                    </div>
 
                     <button type="submit">Enviar</button>
                 </form>
