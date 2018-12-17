@@ -15,7 +15,7 @@ function limitWords() {
   if (array[array.length - 1] === "") array.pop()
   let len = array.length
 	console.log("​len", len)
-  if (len >= 5 && event.keyCode == 32) {
+  if (len >= 150 && event.keyCode == 32) {
     if (event.keyCode == 46 || event.keyCode == 8) {
     } else if (event.keyCode < 48 || event.keyCode > 57) {
       event.preventDefault()
