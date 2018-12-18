@@ -84,6 +84,13 @@ li>a {
 }
 
 li:hover {
+  color: white;
+  background-color: grey;
+  font-weight: bolder;
+  border-right: 10px solid red
+}
+
+.active {
   background-color: chocolate;
   font-size: 1.5rem
 }
@@ -199,7 +206,7 @@ button {
 
 @media screen and (max-width: 720px) {
   .sidenav li:not(.mobile) {
-    display: none;
+    font-size: 0rem;
   }
 
   .sidenav .mobile {
