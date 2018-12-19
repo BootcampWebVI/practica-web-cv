@@ -1,18 +1,16 @@
 //jshint esversion:6
 //jshint asi: true
 
+function setNavigation() {
+  this.offsets = []
+  this.sections.forEach(section => this.offsets.push(getOffset(document.querySelector(section))))
+}
+  
 function scrollSpy() {
-  let sections = ['#home', '#who-is', '#studies', '#experience', '#about-me', '#contact']
-  let menuSections = document.querySelectorAll('.nav-section')
-  let offsets = []
-  sections.forEach(section => offsets.push(getOffset(document.querySelector(section))))
-
-  let verticalScroll = window.pageYOffset
-  offsets.push(verticalScroll)
-  let activeSection = offsets.sort((a, b) => a - b).lastIndexOf(verticalScroll) - 1
-
+  let currentOffsets = [...this.offsets, this.pageYOffset]
+  let activeSection = currentOffsets.sort((a, b) => a - b).lastIndexOf(this.pageYOffset) - 1
   document.querySelector('.active').classList.remove('active')
-  menuSections[activeSection].classList.add('active')
+  this.menuSections[activeSection].classList.add('active')
 }
 
 function getOffset(element) {
@@ -25,7 +23,9 @@ function getOffset(element) {
 }
 
 function toggleMenu() {
-
+  if (window.innerWidth > 720) return
+  console.log('clicked')
+  document.querySelectorAll('.sidenav li').forEach( e => e.classList.toggle('mobile-hidden'))
 }
 
 function toggleField() {
@@ -57,15 +57,17 @@ function limitWords() {
 
 }
 
+// Carga de la página
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Document loaded!')
-
-  scrollSpy()
-  addEventListener('resize', scrollSpy)
+  this.sections = ['#home', '#who-is', '#studies', '#experience', '#about-me', '#contact']
+  this.menuSections = document.querySelectorAll('.nav-section')
+  
+  setNavigation()
+  addEventListener('resize', setNavigation)
   addEventListener('scroll', scrollSpy)
 
-  const icon = document.querySelector('.mobile')
-  icon.addEventListener('click', toggleMenu)
+  const sideNav = document.querySelector('.sidenav ul')
+  sideNav.addEventListener('click', toggleMenu)
 
   const option = document.querySelectorAll('.radio input')
   option.forEach(i => i.addEventListener('click', toggleField))
