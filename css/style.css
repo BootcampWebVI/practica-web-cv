@@ -1,6 +1,9 @@
-/* * {border: 1px solid black} */
-
 /* Formato general de la página */
+:root {
+  --width-desktop: 200px;
+  --width-mobile: 50px
+}
+
 html {
   scroll-behavior: smooth;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -19,7 +22,7 @@ header {
   background-size: cover;
   background-position: center;
   height: 100vh;
-  padding-left: 200px;
+  padding-left: var(--width-desktop);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +53,7 @@ nav ul {
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 200px;
+  width: var(--width-desktop);
   background-color: black;
   color: blanchedalmond;
   position: fixed;
@@ -101,7 +104,7 @@ main {
 }
 
 main>div {
-  padding-left: 200px
+  padding-left: var(--width-desktop)
 }
 
 .container-1,
@@ -162,24 +165,27 @@ form {
   align-items: center
 }
 
-input, textarea {
+input, textarea, select, option {
   font-size: 1.3rem;
   margin: 10px 0px;
   padding: 2px;
   border: 1px solid black
 }
 
-.radio {
+/* .radio {
   display: grid;
   grid-template-columns: 1fr 10fr
 }
 
-.other-field {
+.other-field, {
+  display: flex;
+} */
+
+.selection {
   display: flex;
 }
 
 .referral {
-  margin: 0px;
   flex-grow: 1;
   margin-left: 10px
 }
@@ -203,8 +209,8 @@ button {
 /* Pie de página */
 footer {
   background-color: darkgoldenrod;
-  padding: 50px;
-  padding-left: 200px;
+  padding: var(--width-mobile);
+  padding-left: var(--width-desktop);
 }
 
 @media screen and (max-width: 720px) {
@@ -224,7 +230,7 @@ footer {
   .sidenav li:hover {
     color: white;
     background-color: grey;
-    font-weight: normal;
+    font-weight: bold;
     border-right: 0px
   }
 
@@ -233,7 +239,7 @@ footer {
   }
 
   header, main>div, footer {
-    padding-left: 50px;
+    padding-left: var(--width-mobile);
   }
 
   .title {
@@ -248,23 +254,15 @@ footer {
     grid-template-columns: 1fr
   }
 
+.selection {
+  flex-direction: column;
+}
+
+.referral {
+  margin-left: 0px
+}
+
   button {
     grid-column: 1 / 2
   }
-  /* .sidenav .responsive li {
-    float: none;
-    display: block;
-    width: 100vw;
-    background-color: blanchedalmond;
-    color: black;
-    text-align: center;
-    font-size: 1.5rem;
-  } */
-
-  /* .sidenav .responsive li:hover {
-    background-color: chocolate
-  } */
-
-
-
 }

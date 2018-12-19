@@ -28,8 +28,16 @@ function toggleMenu() {
   document.querySelectorAll('.sidenav li').forEach( e => e.classList.toggle('mobile-hidden'))
 }
 
+// function toggleField() {
+//   if (document.querySelector('#other').checked) {
+//     document.querySelector('.referral').classList.remove('hidden')
+//   } else {
+//     document.querySelector('.referral').classList.add('hidden')
+//   }
+// }
+
 function toggleField() {
-  if (document.querySelector('#other').checked) {
+  if (document.querySelector('#other').selected) {
     document.querySelector('.referral').classList.remove('hidden')
   } else {
     document.querySelector('.referral').classList.add('hidden')
@@ -46,15 +54,12 @@ function limitWords() {
       event.preventDefault()
     }
   }
-
   let counter = document.querySelector('.count')
-
   if (counter.value === "") {
     counter.innerHTML = "0"
   } else {
     counter.innerHTML = len
   }
-
 }
 
 // Carga de la página
@@ -69,7 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const sideNav = document.querySelector('.sidenav ul')
   sideNav.addEventListener('click', toggleMenu)
 
-  const option = document.querySelectorAll('.radio input')
+  // const option = document.querySelectorAll('.radio input')
+  // option.forEach(i => i.addEventListener('click', toggleField))
+
+  const option = document.querySelectorAll('select option')
   option.forEach(i => i.addEventListener('click', toggleField))
 
   const textArea = document.querySelector('textarea')

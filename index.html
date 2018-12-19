@@ -18,7 +18,7 @@
         <nav class="sidenav">
             <ul>
                 <li class="icon-open"><a href="javascript:void(0);"><i class="fas fa-bars"></i></a></li>
-				<li class="icon-close mobile-hidden"><a href="javascript:void(0);"><i class="fas fa-times"></i></a></li>
+                <li class="icon-close mobile-hidden"><a href="javascript:void(0);"><i class="fas fa-times"></i></a></li>
                 <li class="nav-section mobile-hidden active"><a href="#home">Home</a></li>
                 <li class="nav-section mobile-hidden"><a href="#who-is">Quién soy</a></li>
                 <li class="nav-section mobile-hidden"><a href="#studies">Estudios</a></li>
@@ -115,12 +115,23 @@
                     <label for="email">E-mail</label>
                     <input id="email" type="email" placeholder="E-mail..." required>
 
-                    <label>¿Cómo me has conocido?</label>
+                    <!-- <label>¿Cómo me has conocido?</label>
                     <div class="radio">
                         <input id="social" type="radio" name="referral" value="social"><label for="social">Por redes sociales</label>
                         <input id="company" type="radio" name="referral" value="company"><label for="company">Por una empresa</label>
                         <input id="friend" type="radio" name="referral" value="friend"><label for="friend">Por un amigo</label>
                         <input id="other" type="radio" name="referral" value="other"><span class="other-field"><label for="other">Otros </label><input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo..."></span>
+                    </div> -->
+
+                    <label for="selection">¿Cómo me has conocido?</label>
+                    <div class="selection">
+                        <select id="selection" name="selection">
+                            <option id="social" value="social">Por redes sociales</option>
+                            <option id="company" value="company">Por una empresa</option>
+                            <option id="friend" value="friend">Por un amigo</option>
+                            <option id="other" value="other">Otros</option>
+                        </select>
+                        <input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo...">
                     </div>
 
                     <label for="phone">Teléfono</label>
