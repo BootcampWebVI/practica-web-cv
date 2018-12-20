@@ -106,10 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
   addEventListener('resize', setNavigation)
   addEventListener('scroll', scrollSpy)
 
-  // EStablacer mensajes personalizados de validación del formulario
-  document.querySelector('#name').setCustomValidity('El nombre es obligatorio')
-  document.querySelector('#name').setCustomValidity('El email es obligatorio')
-  document.querySelector('#name').setCustomValidity('El mensaje es obligatorio')
+  // Establacer mensajes personalizados de validación del formulario
+  // document.querySelector('#name').setCustomValidity('El nombre es obligatorio')
+  // document.querySelector('#name').setCustomValidity('El email es obligatorio')
+  // document.querySelector('#name').setCustomValidity('El mensaje es obligatorio')
 
   // Añadir los listeners
   const anchors = document.querySelectorAll('.sidenav li.nav-section a')
