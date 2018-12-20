@@ -60,15 +60,58 @@ function limitWords() {
   }
 }
 
+function submitForm(e) {
+  console.log("​submitForm -> 'SENT!'", 'SENT!')
+
+  formContact = document.querySelector('#contact-form')
+  inputName = document.querySelector('#name')
+  inputEmail = document.querySelector('#email')
+  selectList = document.querySelector('#selection')
+  inputPhone = document.querySelector('#phone')
+  textMessage = document.querySelector('#message')
+
+  data = {
+    name: '',
+    email: '',
+    seleccion: '',
+    phone: '',
+    message: ''
+  }
+
+  e.preventDefault()
+
+  if (validar()) {
+    data = {
+      name: inputName.value,
+      email: inputEmail.value,
+      seleccion: selectList.options[selectList.selectedIndex].value,
+      phone: inputPhone.value,
+      message: textMessage.value,
+    }
+    console.dir(data)
+  }
+
+  function validar() {
+    return true
+  }
+}
+
 // Carga de la página
 document.addEventListener('DOMContentLoaded', () => {
   this.sections = ['#home', '#who-is', '#studies', '#experience', '#about-me', '#contact']
   this.menuSections = document.querySelectorAll('.nav-section')
 
+  // Preparar la navegación
   setNavigation()
   addEventListener('resize', setNavigation)
   addEventListener('scroll', scrollSpy)
 
+  // EStablacer mensajes personalizados de validación del formulario
+  document.querySelector('#name').setCustomValidity('El nombre es obligatorio')
+  document.querySelector('#name').setCustomValidity('El email es obligatorio')
+  document.querySelector('#name').setCustomValidity('El mensaje es obligatorio')
+
+  // Añadir los listeners
   const anchors = document.querySelectorAll('.sidenav li.nav-section a')
   anchors.forEach(a => a.addEventListener('click', smoothScroll))
 
@@ -81,4 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const textArea = document.querySelector('textarea')
   textArea.addEventListener('keydown', limitWords)
   textArea.addEventListener('keyup', limitWords)
+
+  const form = document.querySelector('form')
+  form.addEventListener('submit', submitForm)
 })
