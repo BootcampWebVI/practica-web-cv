@@ -22,9 +22,14 @@ function getOffset(element) {
   return offset
 }
 
+function smoothScroll(e) {
+  // e.preventDefault()
+  document.querySelector(e.target.attributes.href.value).scrollIntoView({ behavior: 'smooth' })
+	console.log("​smoothScroll -> e.target.attributes.href.value", e.target.attributes.href.value)
+}
+
 function toggleMenu() {
   if (window.innerWidth > 720) return
-  console.log('clicked')
   document.querySelectorAll('.sidenav li').forEach( e => e.classList.toggle('mobile-hidden'))
 }
 
@@ -48,7 +53,6 @@ function limitWords() {
   let array = event.target.value.split(/[\s]+/)
   if (array[array.length - 1] === "") array.pop()
   let len = array.length
-  console.log("​len", len)
   if (len >= 150 && event.keyCode === 32) {
     if (event.keyCode === 46 || event.keyCode === 8) {} else if (event.keyCode < 48 || event.keyCode > 57) {
       event.preventDefault()
@@ -71,14 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
   addEventListener('resize', setNavigation)
   addEventListener('scroll', scrollSpy)
 
+  const anchors = document.querySelectorAll('.sidenav li.nav-section a')
+  anchors.forEach(a => a.addEventListener('click', smoothScroll))
+
   const sideNav = document.querySelector('.sidenav ul')
   sideNav.addEventListener('click', toggleMenu)
 
   // const option = document.querySelectorAll('.radio input')
   // option.forEach(i => i.addEventListener('click', toggleField))
 
-  const option = document.querySelectorAll('select option')
-  option.forEach(i => i.addEventListener('click', toggleField))
+  const select = document.querySelector('select')
+  select.addEventListener('change', toggleField)
 
   const textArea = document.querySelector('textarea')
   textArea.addEventListener('keydown', limitWords)

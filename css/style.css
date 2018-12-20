@@ -35,13 +35,23 @@ header {
   font-size: 5rem;
   font-weight: bold;
   margin-bottom: 0px;
-  transition: 0.5s
+  transition: 0.5s;
+  animation: popup 2s ease-out
 }
 
 .subtitle {
   text-align: center;
   font-size: 2.5rem;
-  transition: 0.5s
+  transition: 0.5s;
+  animation: popup 2s ease-out;
+  animation-fill-mode: forwards
+}
+
+@keyframes popup {
+  0% {
+    font-size: 0rem;
+    transform: rotate(720deg)
+  }
 }
 
 /* Menú de navegación */
@@ -120,6 +130,10 @@ main>div {
 section {
   width: 75%;
   margin: 50px auto 100px auto
+}
+
+figure {
+  margin: 0px
 }
 
 img {
