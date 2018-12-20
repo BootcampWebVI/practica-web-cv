@@ -102,7 +102,8 @@ nav li:hover {
   font-size: 1.5rem
 }
 
-.icon-open, .icon-close {
+.icon-open,
+.icon-close {
   display: none
 }
 
@@ -123,7 +124,8 @@ main>div {
   background-color: blanchedalmond;
 }
 
-.container-2, .container-4 {
+.container-2,
+.container-4 {
   background-color: lightgoldenrodyellow;
 }
 
@@ -179,21 +181,15 @@ form {
   align-items: center
 }
 
-input, textarea, select, option {
+input,
+textarea,
+select,
+option {
   font-size: 1.3rem;
   margin: 10px 0px;
   padding: 2px;
   border: 1px solid black
 }
-
-/* .radio {
-  display: grid;
-  grid-template-columns: 1fr 10fr
-}
-
-.other-field, {
-  display: flex;
-} */
 
 .selection {
   display: flex;
@@ -252,7 +248,9 @@ footer {
     padding: 10px 5px
   }
 
-  header, main>div, footer {
+  header,
+  main>div,
+  footer {
     padding-left: var(--width-mobile);
   }
 
@@ -268,13 +266,13 @@ footer {
     grid-template-columns: 1fr
   }
 
-.selection {
-  flex-direction: column;
-}
+  .selection {
+    flex-direction: column;
+  }
 
-.referral {
-  margin-left: 0px
-}
+  .referral {
+    margin-left: 0px
+  }
 
   button {
     grid-column: 1 / 2
