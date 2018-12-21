@@ -36,21 +36,21 @@ header {
   font-weight: bold;
   margin-bottom: 0px;
   transition: 0.5s;
-  animation: popup 2s ease-out
+  animation: spin-fade-in 2s ease-out
 }
 
 .subtitle {
   text-align: center;
   font-size: 2.5rem;
   transition: 0.5s;
-  animation: popup 2s ease-out;
+  animation: spin-fade-in 2s ease-out;
   animation-fill-mode: forwards
 }
 
-@keyframes popup {
+@keyframes spin-fade-in {
   0% {
-    font-size: 0rem;
-    transform: rotate(720deg)
+    opacity: 0;
+    transform: rotate(720deg) translateY(400px)
   }
 }
 
@@ -97,9 +97,10 @@ nav li:hover {
   border-right: 10px solid red
 }
 
-.active {
+nav li.active {
   background-color: chocolate;
-  font-size: 1.5rem
+  font-size: 1.5rem;
+  border-right: 0px
 }
 
 .icon-open,
@@ -226,6 +227,7 @@ footer {
   padding-left: var(--width-desktop);
 }
 
+/* Diseño mobile */
 @media screen and (max-width: 720px) {
   .sidenav li.mobile-hidden {
     display: none

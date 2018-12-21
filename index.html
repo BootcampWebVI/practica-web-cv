@@ -108,31 +108,33 @@
                 <h1>Contacto</h1>
                 <p>Si quieres ponerte en contacto conmigo para cualquier asunto, rellena el formulario que aparece a continuación y siéntete libre de contarme lo que te apetezca.</p>
                 <p>¡Espero tu mensaje!</p>
+                <p><em>(*) Campos obligatorios</em></p>
+                <p><em>(**) Sólo números de teléfono fijo o móvil de España (prefijo opcional)</em></p>
                 <form action="" id="contact-form">
-                    <label for="name">Nombre</label>
+                    <label for="name">Nombre (*)</label>
                     <input id="name" type="text" placeholder="Nombre..." required>
 
-                    <label for="email">E-mail</label>
+                    <label for="email">E-mail (*)</label>
                     <input id="email" type="email" placeholder="E-mail..." required>
 
                     <label for="selection">¿Cómo me has conocido?</label>
                     <div class="selection">
                         <select id="selection" name="selection">
-                            <option id="social" value="social">Por redes sociales</option>
-                            <option id="company" value="company">Por una empresa</option>
-                            <option id="friend" value="friend">Por un amigo</option>
-                            <option id="other" value="other">Otros</option>
+                            <option id="social" value="Por redes sociales">Por redes sociales</option>
+                            <option id="company" value="Por una empresa">Por una empresa</option>
+                            <option id="friend" value="Por un amigo">Por un amigo</option>
+                            <option id="other" value="Otros">Otros</option>
                         </select>
-                        <input class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo...">
+                        <input id="referral" class="referral hidden" type="text" name="referral" placeholder="Escribe aquí cómo...">
                     </div>
 
-                    <label for="phone">Teléfono</label>
-                    <input id="phone" type="tel" placeholder="Teléfono...">
+                    <label for="phone">Teléfono (**)</label>
+                    <input id="phone" type="tel" pattern="^(\+34|0034|34)?[6|7|9][0-9]{8}$" placeholder="Teléfono...">
 
-                    <label for="message">Tu mensaje</label>
+                    <label for="message">Tu mensaje(*)</label>
                     <div class="message">
                         <textarea name="" id="message" cols="18" rows="10" placeholder="Escríbeme lo que quieras..." required></textarea>
-                        <div><span class="count">0</span> palabras (Máx. 150)</div>
+                        <div class="count"><span class="count">0</span> palabras (Máx. 150 palabras)</div>
                     </div>
 
                     <button type="submit">Enviar</button>

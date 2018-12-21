@@ -44,15 +44,25 @@ function toggleField() {
 }
 
 function limitWords() {
+  let limit = 150
   let array = event.target.value.split(/[\s]+/)
   if (array[array.length - 1] === "") array.pop()
   let len = array.length
-  if (len >= 150 && event.keyCode === 32) {
+  if (len >= limit) this.value = array.slice(0,150).join(' ')
+  if (len >= limit && event.keyCode === 32) {
     if (event.keyCode === 46 || event.keyCode === 8) {} else if (event.keyCode < 48 || event.keyCode > 57) {
       event.preventDefault()
+      document.querySelector('div.count').style.color = 'red'
+      document.querySelector('div.count').style.fontWeight = 'bold'
     }
   }
-  let counter = document.querySelector('.count')
+
+  if (len < limit) {
+    document.querySelector('div.count').style.color = 'unset'
+    document.querySelector('div.count').style.fontWeight = 'unset'
+  }
+
+  let counter = document.querySelector('span.count')
   if (counter.value === "") {
     counter.innerHTML = "0"
   } else {
@@ -67,13 +77,15 @@ function submitForm(e) {
   inputName = document.querySelector('#name')
   inputEmail = document.querySelector('#email')
   selectList = document.querySelector('#selection')
+  otherReferral = document.querySelector('#referral')
   inputPhone = document.querySelector('#phone')
   textMessage = document.querySelector('#message')
 
   data = {
     name: '',
     email: '',
-    seleccion: '',
+    selection: '',
+    referral: '',
     phone: '',
     message: ''
   }
@@ -84,7 +96,8 @@ function submitForm(e) {
     data = {
       name: inputName.value,
       email: inputEmail.value,
-      seleccion: selectList.options[selectList.selectedIndex].value,
+      selection: selectList.options[selectList.selectedIndex].value,
+      referral: otherReferral.value,
       phone: inputPhone.value,
       message: textMessage.value,
     }
@@ -96,6 +109,21 @@ function submitForm(e) {
   }
 }
 
+function showErrorMessage(e) {
+  if (this.id === 'name') this.setCustomValidity('El nombre es obligatorio')
+  if (this.id === 'email' && this.value === '') {
+    this.setCustomValidity('El e-mail es obligatorio')
+  } else {
+    this.setCustomValidity('Introduce un e-mail válido')
+  }
+  if (this.id === 'phone') this.setCustomValidity('Introduce un teléfono válido de España ')
+  if (this.id === 'message') this.setCustomValidity('El mensaje es obligatorio')
+}
+
+function clearErrorMessage(e) {
+  this.setCustomValidity('')
+}
+
 // Carga de la página
 document.addEventListener('DOMContentLoaded', () => {
   this.sections = ['#home', '#who-is', '#studies', '#experience', '#about-me', '#contact']
@@ -105,11 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setNavigation()
   addEventListener('resize', setNavigation)
   addEventListener('scroll', scrollSpy)
-
-  // Establacer mensajes personalizados de validación del formulario
-  // document.querySelector('#name').setCustomValidity('El nombre es obligatorio')
-  // document.querySelector('#name').setCustomValidity('El email es obligatorio')
-  // document.querySelector('#name').setCustomValidity('El mensaje es obligatorio')
 
   // Añadir los listeners
   const anchors = document.querySelectorAll('.sidenav li.nav-section a')
@@ -124,7 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const textArea = document.querySelector('textarea')
   textArea.addEventListener('keydown', limitWords)
   textArea.addEventListener('keyup', limitWords)
+  // textArea.addEventListener('paste', limitWords)
 
   const form = document.querySelector('form')
   form.addEventListener('submit', submitForm)
+
+  const validationInputs = document.querySelectorAll('#name, #email, #phone, #message')
+
+  validationInputs.forEach(e => e.addEventListener('invalid', showErrorMessage))
+  validationInputs.forEach(e => e.addEventListener('input', clearErrorMessage))
 })
