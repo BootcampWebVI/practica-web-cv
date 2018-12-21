@@ -139,7 +139,7 @@ figure {
   margin: 0px
 }
 
-img {
+img.photo {
   float: left;
   margin-right: 10px;
   height: 100px;
@@ -222,10 +222,60 @@ button {
 
 /* Pie de página */
 footer {
+  color: white;
   background-color: darkgoldenrod;
   padding: var(--width-mobile);
   padding-left: var(--width-desktop);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center
 }
+
+footer p {
+  font-weight: bolder;
+  text-transform: uppercase
+}
+
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+footer li {
+  display: inline-block;
+  /* width: 200px; */
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+footer li a {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  line-height: 100%;
+  padding: 5px
+}
+
+footer .footer-icon {
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: white
+}
+
+footer li a:hover {
+  color: gold;
+  transition: 1s
+}
+
 
 /* Diseño mobile */
 @media screen and (max-width: 720px) {
