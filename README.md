@@ -1,6 +1,6 @@
 # Práctica: Creación de página web para currículum (CV)
 
-Trabajo en curso de creación de pagina web personal con HTML, CSS, y JavaScript.
+Trabajo de creación de pagina web personal con HTML, CSS, y JavaScript.
 
 NOTA: He implementado el smooth scroll mediante la propiedad nativa correspondiente de CSS, válida para Chrome y Firefox, por ser lo más sencillo y conciso y no requerirse compatibilidad con Edge.
 ```css
