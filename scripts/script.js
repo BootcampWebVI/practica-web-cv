@@ -1,6 +1,3 @@
-//jshint esversion:6
-//jshint asi: true
-
 function setNavigation() {
   this.offsets = []
   this.sections.forEach(section => this.offsets.push(getOffset(document.querySelector(section))))
@@ -22,12 +19,11 @@ function getOffset(element) {
   return offset
 }
 
+// Implementación del smooth scroll en caso de que falle la regla CSS
 function smoothScroll(e) {
-  // e.preventDefault()
-  document.querySelector(e.target.attributes.href.value).scrollIntoView({
+  document.querySelector(this.attributes.href.value).scrollIntoView({
     behavior: 'smooth'
   })
-  console.log("​smoothScroll -> e.target.attributes.href.value", e.target.attributes.href.value)
 }
 
 function toggleMenu() {
@@ -147,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const textArea = document.querySelector('textarea')
   textArea.addEventListener('keydown', limitWords)
   textArea.addEventListener('keyup', limitWords)
-  // textArea.addEventListener('paste', limitWords)
+  textArea.addEventListener('paste', limitWords)
 
   const form = document.querySelector('form')
   form.addEventListener('submit', submitForm)
