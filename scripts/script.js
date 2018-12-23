@@ -19,16 +19,8 @@ function getOffset(element) {
   return offset
 }
 
-// Implementación del smooth scroll en caso de que falle la regla CSS
-// function smoothScroll(e) {
-//   e.preventDefault()
-//   document.querySelector(this.attributes.href.value).scrollIntoView({
-//     behavior: 'smooth'
-//   })
-// }
-
 function toggleMenu() {
-  if (window.innerWidth > 720) return
+  if (window.innerWidth > 900) return
   document.querySelectorAll('.sidenav li').forEach(e => e.classList.toggle('mobile-hidden'))
 }
 
@@ -112,6 +104,14 @@ function showErrorMessage(e) {
 function clearErrorMessage(e) {
   this.setCustomValidity('')
 }
+
+// Implementación del smooth scroll en caso de que falle la regla CSS
+// function smoothScroll(e) {
+//   e.preventDefault()
+//   document.querySelector(this.attributes.href.value).scrollIntoView({
+//     behavior: 'smooth'
+//   })
+// }
 
 // Carga de la página
 document.addEventListener('DOMContentLoaded', () => {

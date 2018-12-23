@@ -275,7 +275,7 @@ footer li a:hover {
 }
 
 /* Diseño mobile */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 900px) {
 /* Menú responsive */
   .sidenav li.mobile-hidden {
     display: none
