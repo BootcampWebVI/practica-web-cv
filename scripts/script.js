@@ -1,13 +1,7 @@
+// Definir offsets en cargar y redimensionar la página
 function setNavigation() {
   this.offsets = []
   this.sections.forEach(section => this.offsets.push(getOffset(document.querySelector(section))))
-}
-
-function scrollSpy() {
-  let currentOffsets = [...this.offsets, this.pageYOffset]
-  let activeSection = currentOffsets.sort((a, b) => a - b).lastIndexOf(this.pageYOffset) - 1
-  document.querySelector('.active').classList.remove('active')
-  this.menuSections[activeSection].classList.add('active')
 }
 
 function getOffset(element) {
@@ -19,11 +13,21 @@ function getOffset(element) {
   return offset
 }
 
+// Scrollspy del menú
+function scrollSpy() {
+  let currentOffsets = [...this.offsets, this.pageYOffset]
+  let activeSection = currentOffsets.sort((a, b) => a - b).lastIndexOf(this.pageYOffset) - 1
+  document.querySelector('.active').classList.remove('active')
+  this.menuSections[activeSection].classList.add('active')
+}
+
+// Menú desplegable
 function toggleMenu() {
   if (window.innerWidth > 900) return
   document.querySelectorAll('.sidenav li').forEach(e => e.classList.toggle('mobile-hidden'))
 }
 
+// Campo dinámico
 function toggleField() {
   if (document.querySelector('#other').selected) {
     document.querySelector('.referral').classList.remove('hidden')
@@ -32,6 +36,7 @@ function toggleField() {
   }
 }
 
+// Limite de palabras en el mensaje
 function limitWords() {
   let limit = 150
   let array = event.target.value.split(/[\s]+/)
@@ -59,6 +64,7 @@ function limitWords() {
   }
 }
 
+// Procesar el formulario
 function submitForm(e) {
   inputName = document.querySelector('#name')
   inputEmail = document.querySelector('#email')
@@ -90,6 +96,7 @@ function submitForm(e) {
   console.dir(data)
 }
 
+// Mensajes de error en el formulario
 function showErrorMessage(e) {
   if (event.target.id === 'name') event.target.setCustomValidity('El nombre es obligatorio')
   if (event.target.id === 'email' && event.target.value === '') {
@@ -104,14 +111,6 @@ function showErrorMessage(e) {
 function clearErrorMessage(e) {
   this.setCustomValidity('')
 }
-
-// Implementación del smooth scroll en caso de que falle la regla CSS
-// function smoothScroll(e) {
-//   e.preventDefault()
-//   document.querySelector(this.attributes.href.value).scrollIntoView({
-//     behavior: 'smooth'
-//   })
-// }
 
 // Carga de la página
 document.addEventListener('DOMContentLoaded', () => {
@@ -139,11 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', submitForm)
 
   const validationInputs = document.querySelectorAll('#name, #email, #phone, #message')
-
   validationInputs.forEach(e => e.addEventListener('invalid', showErrorMessage))
   validationInputs.forEach(e => e.addEventListener('input', clearErrorMessage))
-
-  // Listeners para el efecto smooth scroll mediante JavaScript
-  // const anchors = document.querySelectorAll('.sidenav li.nav-section a')
-  // anchors.forEach(a => a.addEventListener('click', smoothScroll))
 })
