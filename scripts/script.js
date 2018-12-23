@@ -20,11 +20,12 @@ function getOffset(element) {
 }
 
 // Implementación del smooth scroll en caso de que falle la regla CSS
-function smoothScroll(e) {
-  document.querySelector(this.attributes.href.value).scrollIntoView({
-    behavior: 'smooth'
-  })
-}
+// function smoothScroll(e) {
+//   e.preventDefault()
+//   document.querySelector(this.attributes.href.value).scrollIntoView({
+//     behavior: 'smooth'
+//   })
+// }
 
 function toggleMenu() {
   if (window.innerWidth > 720) return
@@ -44,7 +45,7 @@ function limitWords() {
   let array = event.target.value.split(/[\s]+/)
   if (array[array.length - 1] === "") array.pop()
   let len = array.length
-  if (len >= limit) this.value = array.slice(0,150).join(' ')
+  if (len >= limit) this.value = array.slice(0, 150).join(' ')
   if (len >= limit && event.keyCode === 32) {
     if (event.keyCode === 46 || event.keyCode === 8) {} else if (event.keyCode < 48 || event.keyCode > 57) {
       event.preventDefault()
@@ -67,9 +68,6 @@ function limitWords() {
 }
 
 function submitForm(e) {
-  console.log("​submitForm -> 'SENT!'", 'SENT!')
-
-  formContact = document.querySelector('#contact-form')
   inputName = document.querySelector('#name')
   inputEmail = document.querySelector('#email')
   selectList = document.querySelector('#selection')
@@ -88,32 +86,27 @@ function submitForm(e) {
 
   e.preventDefault()
 
-  if (validar()) {
-    data = {
-      name: inputName.value,
-      email: inputEmail.value,
-      selection: selectList.options[selectList.selectedIndex].value,
-      referral: otherReferral.value,
-      phone: inputPhone.value,
-      message: textMessage.value,
-    }
-    console.dir(data)
+  data = {
+    name: inputName.value,
+    email: inputEmail.value,
+    selection: selectList.options[selectList.selectedIndex].value,
+    referral: otherReferral.value,
+    phone: inputPhone.value,
+    message: textMessage.value,
   }
 
-  function validar() {
-    return true
-  }
+  console.dir(data)
 }
 
 function showErrorMessage(e) {
-  if (this.id === 'name') this.setCustomValidity('El nombre es obligatorio')
-  if (this.id === 'email' && this.value === '') {
+  if (event.target.id === 'name') event.target.setCustomValidity('El nombre es obligatorio')
+  if (event.target.id === 'email' && event.target.value === '') {
     this.setCustomValidity('El e-mail es obligatorio')
-  } else {
+  } else if (event.target.id === 'email') {
     this.setCustomValidity('Introduce un e-mail válido')
   }
-  if (this.id === 'phone') this.setCustomValidity('Introduce un teléfono válido de España ')
-  if (this.id === 'message') this.setCustomValidity('El mensaje es obligatorio')
+  if (event.target.id === 'phone') this.setCustomValidity('Introduce un teléfono válido de España ')
+  if (event.target.id === 'message') this.setCustomValidity('El mensaje es obligatorio')
 }
 
 function clearErrorMessage(e) {
@@ -131,9 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
   addEventListener('scroll', scrollSpy)
 
   // Añadir los listeners
-  const anchors = document.querySelectorAll('.sidenav li.nav-section a')
-  anchors.forEach(a => a.addEventListener('click', smoothScroll))
-
   const sideNav = document.querySelector('.sidenav ul')
   sideNav.addEventListener('click', toggleMenu)
 
@@ -152,4 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   validationInputs.forEach(e => e.addEventListener('invalid', showErrorMessage))
   validationInputs.forEach(e => e.addEventListener('input', clearErrorMessage))
+
+  // Listeners para el efecto smooth scroll mediante JavaScript
+  // const anchors = document.querySelectorAll('.sidenav li.nav-section a')
+  // anchors.forEach(a => a.addEventListener('click', smoothScroll))
 })

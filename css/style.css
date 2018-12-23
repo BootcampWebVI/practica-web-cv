@@ -6,7 +6,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
 }
 
 body {
@@ -27,7 +27,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: 0.5s;
+  transition: 0.5s
 }
 
 .title {
@@ -122,12 +122,12 @@ main>div {
 .container-1,
 .container-3,
 .container-5 {
-  background-color: blanchedalmond;
+  background-color: blanchedalmond
 }
 
 .container-2,
 .container-4 {
-  background-color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow
 }
 
 section {
@@ -144,33 +144,33 @@ img.photo {
   margin-right: 10px;
   height: 100px;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid white
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem
 }
 
 h2 {
   font-size: 1.8rem;
-  margin-bottom: 0px;
+  margin-bottom: 0px
 }
 
 .details {
   display: block;
   font-size: 1.3rem;
   font-style: italic;
-  margin: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px
 }
 
 p {
-  font-size: 1.3rem;/
+  font-size: 1.3rem
 }
 
 video {
   width: 100%;
   display: block;
-  margin: 25px auto;
+  margin: 25px auto
 }
 
 /* Formulario */
@@ -240,15 +240,14 @@ footer ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-content: center
 }
 
 footer li {
   display: inline-block;
-  /* width: 200px; */
   padding: 20px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: bold
 }
 
 footer li a {
@@ -275,16 +274,16 @@ footer li a:hover {
   transition: 1s
 }
 
-
 /* Diseño mobile */
 @media screen and (max-width: 720px) {
+/* Menú responsive */
   .sidenav li.mobile-hidden {
     display: none
   }
 
   .sidenav li:not(.mobile-hidden) {
     display: block;
-    font-size: 1rem;
+    font-size: 1rem
   }
 
   .sidenav ul {
@@ -302,26 +301,28 @@ footer li a:hover {
     padding: 10px 5px
   }
 
+/* Contenido responsive */
   header,
   main>div,
   footer {
-    padding-left: var(--width-mobile);
+    padding-left: var(--width-mobile)
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 3rem
   }
 
   .subtitle {
     font-size: 1.5rem
   }
 
+/* Formulario responsive */
   form {
     grid-template-columns: 1fr
   }
 
   .selection {
-    flex-direction: column;
+    flex-direction: column
   }
 
   .referral {
